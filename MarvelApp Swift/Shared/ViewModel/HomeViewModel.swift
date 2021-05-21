@@ -11,6 +11,7 @@ import CryptoKit
 
 
 class HomeViewModel: ObservableObject {
+    
     @Published var searchQuery = ""
     
     var searchCancellable: AnyCancellable? = nil
@@ -36,10 +37,12 @@ class HomeViewModel: ObservableObject {
         let ts = String(Date().timeIntervalSince1970)
         let hash = MD5(data: "\(ts)\(privateKey)\(publicKey)")
         let originalQuery = searchQuery.replacingOccurrences(of: " ", with: "%20")
-        let url =  "https://gateway.marvel.com:443/v1/public/characters?nameStartWith=\(originalQuery)&ts=\(ts)&apikey=\(publicKey)&hash\(hash)"
+        let url =  "https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=\(originalQuery)&ts=\(ts)&apikey=\(publicKey)&hash=\(hash)"
+        
         let session = URLSession(configuration: .default)
         session.dataTask(with: URL(string: url)!){
             (data,_, err) in
+            
             if let error = err {
                 print(error.localizedDescription)
                 return

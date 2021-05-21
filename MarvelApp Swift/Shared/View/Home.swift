@@ -11,10 +11,11 @@ struct Home: View {
     @StateObject var homeData = HomeViewModel()
     var body: some View {
         TabView{
-            //Characters Views
             
+            //Characters View
             CharactersView()
-                .tabItem { Image(systemName: "person.3.fill")
+                .tabItem {
+                    Image(systemName: "person.3.fill")
                     Text("Characters")
                 }
             
