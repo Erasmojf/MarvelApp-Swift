@@ -1,25 +1,24 @@
 //
-//  Character.swift
+//  Comic.swift
 //  MarvelApp Swift (iOS)
 //
-//  Created by Erasmo J.F Da Silva on 13/05/21.
+//  Created by Erasmo J.F Da Silva on 21/05/21.
 //
 
 import SwiftUI
 
-
-struct APIResult: Codable{
-    var data: APICharacterData
+struct APIComicResult: Codable{
+    var data: APIComicData
 }
 
-struct APICharacterData: Codable {
+struct APIComicData: Codable {
     var count: Int
-    var results: [Character]
+    var results: [Comic]
 }
 
 struct Character: Identifiable, Codable {
     var id: Int
-    var name: String
+    var title: String
     var description:String
     var thumbnail: [String:String]
     var urls:[[String: String]]

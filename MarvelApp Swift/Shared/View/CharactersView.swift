@@ -66,7 +66,9 @@ struct CharactersView_Previews: PreviewProvider {
 
 
 struct CharacterRowView: View {
+    
     var character: Character
+    
     var body: some View{
         HStack(alignment: .top, spacing: 15) {
            
@@ -77,6 +79,7 @@ struct CharacterRowView: View {
                 .cornerRadius(8)
             
             VStack(alignment: .leading, spacing: 8, content: {
+               
                 Text(character.name)
                     .font(.title3)
                     .fontWeight(.bold)
@@ -124,3 +127,4 @@ struct CharacterRowView: View {
         return type.capitalized
     }
 }
+
